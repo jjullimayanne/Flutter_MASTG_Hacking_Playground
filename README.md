@@ -78,7 +78,7 @@ Aqui estão algumas práticas essenciais para desenvolver aplicativos Flutter ma
 <img src="https://github.com/user-attachments/assets/27e5ca3e-6f69-4a17-b3f0-566ed23b1dbe" alt="Descrição da imagem" width="300">
 
 
-No **Desafio 1**, você aprenderá e implementará os seguintes conceitos de segurança:
+### No **Desafio 1**, você aprenderá e implementará os seguintes conceitos de segurança:
 
 ### **1. Validação de Entradas**
 - **Por que é importante?**
