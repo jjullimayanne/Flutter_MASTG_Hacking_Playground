@@ -75,8 +75,7 @@ Aqui estão algumas práticas essenciais para desenvolver aplicativos Flutter ma
 
 ## Desafio 1: Validação de Senha e Primeiros Conceitos de Segurança
 
-<img src="https://github.com/user-attachments/assets/100dd110-fe71-4ae3-9927-9f47fdb35e63" alt="Descrição da imagem" width="300">
-
+<img src="https://github.com/user-attachments/assets/27e5ca3e-6f69-4a17-b3f0-566ed23b1dbe" alt="Descrição da imagem" width="300">
 
 
 No **Desafio 1**, você aprenderá e implementará os seguintes conceitos de segurança:
