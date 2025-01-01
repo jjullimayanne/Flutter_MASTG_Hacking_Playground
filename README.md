@@ -149,6 +149,99 @@ No **Desafio 1**, você aprenderá e implementará os seguintes conceitos de seg
 
 ---
 
+# Vulnerabilidades e Como Explorá-las
+
+Aqui estão as vulnerabilidades presentes no seu app Flutter, juntamente com as ferramentas que podem ser usadas para explorá-las e como realizar a exploração.
+
+## 1. Armazenamento Inseguro de Senhas (Hardcoded)
+**Vulnerabilidade**: A senha está hardcoded no código, o que significa que ela está diretamente exposta no código-fonte e pode ser facilmente extraída.
+
+### Como Explorar:
+- **Ferramentas**:
+  - **JADX** ou **APKTool**: Usadas para descompilar o APK e procurar pela senha hardcoded no código-fonte.
+  - **Frida**: Pode ser usada para manipular a execução do código em tempo real e modificar a senha ou verificar sua presença na memória do dispositivo.
+
+### Passos para Explorar:
+1. Descompilar o APK com **JADX** ou **APKTool**.
+2. Procure pela string "SuperSecretKey123" no código.
+3. Use **Frida** para alterar a senha ou manipular a validação de senha.
+
+---
+
+## 2. Armazenamento Inseguro de Senha no SharedPreferences
+**Vulnerabilidade**: A senha, quando salva, é armazenada em SharedPreferences de forma insegura (sem criptografia), o que torna fácil para um atacante acessar essa senha se tiver acesso ao dispositivo.
+
+### Como Explorar:
+- **Ferramentas**:
+  - **Frida** ou **Objection**: Usadas para inspecionar e manipular os dados armazenados no SharedPreferences enquanto o app está em execução.
+  - **JADX/Objection**: Para inspecionar o arquivo APK e verificar onde a senha é armazenada sem criptografia.
+
+### Passos para Explorar:
+1. Utilize **Frida** ou **Objection** para acessar e modificar o valor armazenado no SharedPreferences.
+2. Procure pela chave `'user_password'` dentro dos dados do SharedPreferences e obtenha o valor armazenado.
+
+---
+
+## 3. Falta de Criptografia e Validação Adequada
+**Vulnerabilidade**: Não há criptografia para armazenar dados sensíveis e a validação da senha é feita com uma comparação simples, facilitando o bypass de segurança.
+
+### Como Explorar:
+- **Ferramentas**:
+  - **Frida** ou **Objection**: Permitem manipular a lógica de validação da senha em tempo de execução.
+  - **JADX**: Para procurar a função de validação e modificar a senha.
+
+### Passos para Explorar:
+1. Use **Frida** ou **Objection** para interceptar a validação de senha.
+2. Modifique o valor da variável que armazena a senha ou altere o fluxo de execução para contornar a validação.
+
+---
+
+## 4. Falha de Verificação de Integridade (Sem Proteção contra Depuração)
+**Vulnerabilidade**: O app não verifica adequadamente a presença de um depurador, permitindo que ferramentas como Frida ou JDB possam ser usadas para burlar o código.
+
+### Como Explorar:
+- **Ferramentas**:
+  - **Frida**: Permite injetar código JavaScript no app em tempo de execução e manipular variáveis ou funções.
+  - **JDB**: Ferramenta de depuração que pode ser usada para inspecionar o comportamento do app e manipular a execução.
+
+### Passos para Explorar:
+1. Use **Frida** para manipular a execução do app enquanto ele está sendo depurado, ignorando a falha de verificação de integridade.
+2. Utilize **JDB** para depurar o app e modificar o fluxo de execução.
+
+---
+
+## 5. Armazenamento Inseguro de Tokens de Sessão
+**Vulnerabilidade**: O token de sessão ou outros dados sensíveis são armazenados em SharedPreferences ou outro armazenamento inseguro sem criptografia.
+
+### Como Explorar:
+- **Ferramentas**:
+  - **Frida** ou **Objection**: Permitem acessar e modificar dados armazenados no SharedPreferences em tempo de execução.
+  - **JADX**: Usado para verificar onde os tokens estão armazenados no código.
+
+### Passos para Explorar:
+1. Use **Frida** ou **Objection** para acessar o **SharedPreferences** e recuperar tokens de sessão armazenados.
+2. Modifique os dados sensíveis, como tokens ou credenciais.
+
+---
+
+## 7. Permitir Depuração em Produção (Sem Proteção contra Ferramentas como Frida)
+**Vulnerabilidade**: O app permite que ferramentas de depuração como Frida e Objection sejam usadas sem qualquer tipo de proteção para interromper a execução ou detectar a presença de depuradores.
+
+### Como Explorar:
+- **Ferramentas**:
+  - **Frida** ou **Objection**: Permitem manipular o app em tempo de execução, injetar código e burlar a lógica de segurança.
+  
+### Passos para Explorar:
+1. Use **Frida** ou **Objection** para interagir dinamicamente com o app.
+2. Modifique o comportamento do app para contornar qualquer proteção de depuração.
+
+---
+
+## Conclusão
+
+Essas são as principais vulnerabilidades no seu app Flutter e as ferramentas que podem ser usadas para explorá-las. A exploração dessas falhas pode ser feita de forma **educacional** para entender como melhorar a segurança dos aplicativos móveis.
+
+
 ## Pré-requisitos
 
 - **Flutter SDK**: Certifique-se de ter o Flutter instalado ([Guia de Instalação](https://flutter.dev/docs/get-started/install)).
