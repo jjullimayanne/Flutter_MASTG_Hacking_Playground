@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_uncrackable/features/challenges/challangeOne/presentation/screens/password_screen.dart';
+import 'package:flutter_uncrackable/core/routes/route.dart';
+import 'package:flutter_uncrackable/core/routes/routes_constants.dart';
 
 import 'features/challenges/challangeOne/core/utils/integrity_checker.dart';
 
@@ -21,8 +22,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'UnCrackable Level 1',
-      home: PasswordScreen(),
+      title: 'Flutter UnCrackable',
+      initialRoute: RouteNames.home,
+      onGenerateRoute: AppRoutes.generateRoute,
     );
   }
 }

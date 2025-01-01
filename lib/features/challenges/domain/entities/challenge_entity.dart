@@ -1,9 +1,11 @@
 class Challenge {
-  final String id; // Identificador único do desafio
-  final String title; // Título do desafio
+  final String id;
+  final String title;
+  final bool isAvailable;
 
   Challenge({
     required this.id,
     required this.title,
+    this.isAvailable = false,
   });
 }

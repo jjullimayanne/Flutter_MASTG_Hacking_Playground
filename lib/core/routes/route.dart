@@ -9,8 +9,7 @@ class AppRoutes {
       case RouteNames.home:
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case RouteNames.challenge1:
-        return MaterialPageRoute(builder: (_) => PasswordScreen());
-      // Adicione outras rotas conforme necessário
+        return MaterialPageRoute(builder: (_) => const PasswordScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

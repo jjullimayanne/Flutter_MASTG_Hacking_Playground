@@ -7,8 +7,6 @@ class HomeScreen extends StatelessWidget {
   final ChallengeRepositoryImpl repository;
   final GetRouteByIdUsecase getRouteById;
 
-  // TODO: Implementar Dependency Injection (DI) no futuro para gerenciar dependências.
-
   HomeScreen({
     super.key,
   })  : repository = ChallengeRepositoryImpl(),
@@ -19,7 +17,9 @@ class HomeScreen extends StatelessWidget {
     final challenges = repository.fetchChallenges();
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Lista de Desafios')),
+      appBar: AppBar(
+        title: const Text('UnCrackable Flutter Challenges'),
+      ),
       body: ListView.builder(
         itemCount: challenges.length,
         itemBuilder: (context, index) {
@@ -27,16 +27,22 @@ class HomeScreen extends StatelessWidget {
           return ListTile(
             title: Text(challenge.title),
             trailing: const Icon(Icons.arrow_forward),
-            onTap: () {
-              final route = getRouteById(challenge.id);
-              if (route != null) {
-                Navigator.pushNamed(context, route);
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Rota não encontrada')),
-                );
-              }
-            },
+            onTap: challenge.isAvailable
+                ? () {
+                    final route = getRouteById(challenge.id);
+                    if (route != null) {
+                      Navigator.pushNamed(context, route);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Rota não encontrada')),
+                      );
+                    }
+                  }
+                : null,
+            subtitle: challenge.isAvailable
+                ? null
+                : const Text('Desafio ainda não disponível',
+                    style: TextStyle(color: Colors.grey)),
           );
         },
       ),
