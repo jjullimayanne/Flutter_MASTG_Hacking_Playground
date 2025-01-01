@@ -4,6 +4,8 @@
 Bem-vindo ao **Flutter UnCrackable**, um projeto inspirado no **OWASP Mobile Application Security Project (MASP)**. 
 Este repositório visa replicar os conceitos de segurança mobile apresentados no OWASP, adaptados para o desenvolvimento em **Flutter**. Aqui você encontrará implementações práticas, desafios de segurança e exemplos para aprimorar suas habilidades de segurança mobile com Flutter.
 
+<img src="https://github.com/user-attachments/assets/a8873ca7-d405-48b9-82b0-7724d53318cf" alt="Descrição da imagem" width="300">
+
 ## Objetivo do Projeto
 
 O objetivo deste projeto é:
@@ -72,6 +74,10 @@ Aqui estão algumas práticas essenciais para desenvolver aplicativos Flutter ma
    - Detecte e bloqueie o modo de depuração em tempo de execução para evitar exploração.
 
 ## Desafio 1: Validação de Senha e Primeiros Conceitos de Segurança
+
+<img src="https://github.com/user-attachments/assets/100dd110-fe71-4ae3-9927-9f47fdb35e63" alt="Descrição da imagem" width="300">
+
+
 
 No **Desafio 1**, você aprenderá e implementará os seguintes conceitos de segurança:
 
